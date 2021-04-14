@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        *{
+            background-color: lightgray;
+            margin: 0px;
+            padding: 0px;
+           
+        }
+        .container{
+            display: flex;
+            background-color: lightgreen;
+            height: 100vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .counter{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: lightskyblue;
+            font-size: 4rem;
+            height: 10rem;
+            width: 15rem;
+            padding: 2rem;
+            border: 1rem solid cadetblue;
+            border-radius: 4rem;
+            transition: all 2s;
+        }
+        .actions{
+            display: flex;
+            background-color: lightsalmon;
+            padding: 2rem;
+            height: 4rem;
+            width: 15rem;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 4rem;
+        }
+        .btn{
+            background-color: lightslategray;
+            font-size: 2rem;
+            display: flex;
+            width: 4rem;
+            height: 3rem;
+            font-weight: bolder;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2rem;
+        }
+        .grow{
+            font-size: 10rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="counter">1</div>
+        <div class="actions">
+            <a class="btn inc">+</a>
+            <a class="btn dec">-</a>
+        </div>
+    </div>
+    <script>
+        let incBtn=document.querySelector(".inc")
+        let decBtn=document.querySelector(".dec")
+        let counterbox= document.querySelector(".counter")
+        incBtn.onclick=handler;
+        decBtn.onclick=handler;
+        function inc(v=1){
+            let val=counterbox.innerText.trim();
+            val=Number(val);
+            val+=v;
+
+            counterbox.innerText=(val<0)?0:val;
+        }
+        function handler(e){
+            let val = e.target.classList.contains("inc")?1:-1;
+            inc(val);
+            if(counterbox.classList.contains("grow")){
+                if(val==-1){
+                    counterbox.classList.remove("grow");
+                }
+            }
+            else{
+                if(val==1){
+                    counterbox.classList.add("grow");
+                }
+                    
+             }
+        }
+    </script>
+</body>
+</html>
