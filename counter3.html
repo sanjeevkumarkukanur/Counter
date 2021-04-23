@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .counter{
+            height: 3rem;
+            width: 2rem;
+            background: aqua;
+
+        }
+        .action{
+            height: 20px;
+            width: 20px;
+            margin: 20px;
+        }
+        .btn{
+            width: 200px;  
+            height: 100px;
+        
+        }
+
+    </style>
+</head>
+<body >
+    <div class="main">
+    <div class="counter">
+        0
+    </div>
+    <div class="action">
+        <a class="btn inc">+</a>
+       <a class="btn dec">-</a>
+        
+    </div>
+</div>
+<script>
+    let decBtn = document.querySelector(".dec");
+    let incBtn = document.querySelector(".inc");
+    CounterBOx = document.querySelector(".counter");
+    incBtn.onclick = inc;
+    decBtn.onclick = dec;
+    function inc(e,v=1){
+        let val=CounterBOx.innerText.trim();
+        val = Number(val);
+        val+=v;
+        CounterBOx.innerText= (val<0)?0:val;
+    }
+    function dec(e,v=-1){
+        let val=CounterBOx.innerText.trim();
+        val = Number(val);
+        val+=v;
+        CounterBOx.innerText= (val<0)?0:val;
+    }
+    
+    
+</script>
+</body>
+</html>
